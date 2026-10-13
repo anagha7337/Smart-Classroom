@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Classroom Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">NSSCE · GROUP 6</p>
+      <h1>Smart Classroom</h1>
+      <p>Classroom monitoring and control</p>
+    </div>
+    <div id="connection" class="status">Connecting...</div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Environment</h2>
+      <div class="grid">
+        <article class="card">
+          <p>Temperature</p>
+          <h3><span id="temperature">--</span> °C</h3>
+        </article>
+        <article class="card">
+          <p>Humidity</p>
+          <h3><span id="humidity">--</span> %</h3>
+        </article>
+        <article class="card">
+          <p>Light level</p>
+          <h3 id="lightLevel">--</h3>
+        </article>
+        <article class="card">
+          <p>Occupancy / motion</p>
+          <h3 id="motion">Waiting...</h3>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Classroom appliances</h2>
+      <div class="grid">
+        <article class="card">
+          <p>Classroom light</p>
+          <h3 id="lightStatus">Unknown</h3>
+          <button onclick="sendCommand('LIGHT_ON')">Turn ON</button>
+          <button class="secondary"
+            onclick="sendCommand('LIGHT_OFF')">Turn OFF</button>
+        </article>
+        <article class="card">
+          <p>Fan</p>
+          <h3 id="fanStatus">Unknown</h3>
+          <button onclick="sendCommand('FAN_ON')">Turn ON</button>
+          <button class="secondary"
+            onclick="sendCommand('FAN_OFF')">Turn OFF</button>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Control mode</h2>
+      <div class="card">
+        <p>Current mode: <strong id="mode">Unknown</strong></p>
+        <button onclick="sendCommand('AUTO')">
+          Automatic mode
+        </button>
+        <button class="secondary"
+          onclick="sendCommand('MANUAL')">
+          Manual mode
+        </button>
+      </div>
+    </section>
+
+    <p id="lastUpdate">Waiting for sensor data...</p>
+    <p id="feedback" role="status"></p>
+  </main>
+</body>
+</html>
