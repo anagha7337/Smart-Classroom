@@ -33,6 +33,10 @@ The project is implemented and tested in the Wokwi ESP32 simulator.
 
 ![Dashboard](pictures/dashboard.png)
 
+## Working
+
+![Dashboard](pictures/working.png)
+
 ## Hardware Components
 
 | Component | Purpose |
@@ -82,9 +86,10 @@ smart-classroom-management/
 ├── script.js
 ├── README.md
 └── pictures/
-    ├── circuit_diagram.jpg
-    ├── dashboard.jpg
-    └── architecture_diagram.png
+    ├── circuit_diagram.png
+    ├── dashboard.png
+    ├── architecture_diagram.png
+    └── working.png
 ```
 
 ## Future Scope
